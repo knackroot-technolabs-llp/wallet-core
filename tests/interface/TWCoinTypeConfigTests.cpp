@@ -127,6 +127,9 @@ TEST(TWCoinTypeConfiguration, TWCoinTypeConfigurationGetSymbol) {
 
     auto ark = WRAPS(TWCoinTypeConfigurationGetSymbol(TWCoinTypeARK));
     assertStringsEqual(ark, "ARK");
+
+    auto terra = WRAPS(TWCoinTypeConfigurationGetSymbol(TWCoinTypeTerra));
+    assertStringsEqual(terra, "LUNA");
 }
 
 TEST(TWCoinTypeConfiguration, TWCoinTypeConfigurationGetDecimals) {
@@ -171,6 +174,7 @@ TEST(TWCoinTypeConfiguration, TWCoinTypeConfigurationGetDecimals) {
     ASSERT_EQ(TWCoinTypeConfigurationGetDecimals(TWCoinTypeSemux), 9);
     ASSERT_EQ(TWCoinTypeConfigurationGetDecimals(TWCoinTypeDEXON), 18);
     ASSERT_EQ(TWCoinTypeConfigurationGetDecimals(TWCoinTypeARK), 8);
+    ASSERT_EQ(TWCoinTypeConfigurationGetDecimals(TWCoinTypeTerra), 6);
 }
 
 TEST(TWCoinTypeConfiguration, TWCoinTypeConfigurationGetTransactionURL) {
@@ -301,6 +305,9 @@ TEST(TWCoinTypeConfiguration, TWCoinTypeConfigurationGetTransactionURL) {
 
     auto ark = WRAPS(TWCoinTypeConfigurationGetTransactionURL(TWCoinTypeARK, txId));
     assertStringsEqual(ark, "https://explorer.ark.io/transaction/123");
+
+    auto terra = WRAPS(TWCoinTypeConfigurationGetTransactionURL(TWCoinTypeTerra, txId));
+    assertStringsEqual(terra, "https://terra.stake.id/?#/tx/123");
 }
 
 TEST(TWCoinTypeConfiguration, TWCoinTypeConfigurationGetID) {
@@ -423,6 +430,9 @@ TEST(TWCoinTypeConfiguration, TWCoinTypeConfigurationGetID) {
 
     auto ark = WRAPS(TWCoinTypeConfigurationGetID(TWCoinTypeARK));
     assertStringsEqual(ark, "ark");
+
+    auto terra = WRAPS(TWCoinTypeConfigurationGetID(TWCoinTypeTerra));
+    assertStringsEqual(terra, "terra");
 }
 
 TEST(TWCoinTypeConfiguration, TWCoinTypeConfigurationGetName) {
@@ -548,6 +558,9 @@ TEST(TWCoinTypeConfiguration, TWCoinTypeConfigurationGetName) {
 
     auto ark = WRAPS(TWCoinTypeConfigurationGetName(TWCoinTypeARK));
     assertStringsEqual(ark, "ARK");
+
+    auto terra = WRAPS(TWCoinTypeConfigurationGetName(TWCoinTypeTerra));
+    assertStringsEqual(terra, "Terra");
 }
 
 TEST(TWCoinTypeConfiguration, TWCoinTypeBlockchain) {
@@ -565,4 +578,5 @@ TEST(TWCoinTypeConfiguration, TWCoinTypeBlockchain) {
     ASSERT_EQ(TWBlockchainEOS, TWCoinTypeBlockchain(TWCoinTypeBravoCoin));
     ASSERT_EQ(TWBlockchainNano, TWCoinTypeBlockchain(TWCoinTypeNano));
     ASSERT_EQ(TWBlockchainSemux, TWCoinTypeBlockchain(TWCoinTypeSemux));
+    ASSERT_EQ(TWBlockchainCosmos, TWCoinTypeBlockchain(TWCoinTypeTerra));
 }

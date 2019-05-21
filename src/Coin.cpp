@@ -66,6 +66,9 @@ bool TW::validateAddress(TWCoinType coin, const std::string& string) {
 
     case TWCoinTypeCosmos:
         return Cosmos::Address::isValid(string, HRP_COSMOS);
+    
+    case TWCoinTypeTerra:
+        return Cosmos::Address::isValid(string, HRP_TERRA);
 
     case TWCoinTypeDash:
         return Bitcoin::Address::isValid(string, {{TWP2PKHPrefixDash}, {TWP2SHPrefixDash}});
@@ -185,6 +188,9 @@ std::string TW::deriveAddress(TWCoinType coin, const PublicKey& publicKey) {
 
     case TWCoinTypeCosmos:
         return Cosmos::Address(HRP_COSMOS, publicKey).string();
+
+    case TWCoinTypeTerra:
+        return Cosmos::Address(HRP_TERRA, publicKey).string();
 
     case TWCoinTypeBitcoin:
         return Bitcoin::SegwitAddress(publicKey, 0, HRP_BITCOIN).string();

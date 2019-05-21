@@ -71,6 +71,7 @@ enum TWCoinType {
     TWCoinTypeDEXON = 237,
     TWCoinTypeZelcash = 19167,
     TWCoinTypeARK = 111,
+    TWCoinTypeTerra = 330,
 };
 
 /// Returns the blockchain for a coin type.

@@ -604,5 +604,16 @@
         "curve": "secp256k1",
         "publicKeyType": "secp256k1",
         "explorer": "https://explorer.ark.io/transaction/"
+    },
+    {
+        "id": "terra",
+        "name": "Terra",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "blockchain": "Cosmos",
+        "derivationPath": "m/44'/330'/0'/0/0",
+        "curve": "secp256k1",
+        "publicKeyType": "secp256k1",
+        "explorer": "https://terra.stake.id/?#/tx/"
     }
 ]
