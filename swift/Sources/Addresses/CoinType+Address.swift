@@ -10,7 +10,7 @@ public extension CoinType {
     /// Converts a string to an address for this coin type.
     func address(string: String) -> Address? {
         switch self {
-        case .binance, .cosmos:
+        case .binance, .cosmos, .terra:
             if let addr = CosmosAddress(string: string), addr.hrp == hrp { return addr }
         case .bitcoin, .litecoin, .viacoin, .qtum:
             if let addr = SegwitAddress(string: string), addr.hrp == hrp {
@@ -142,6 +142,8 @@ public extension CoinType {
             return .viacoin
         case .qtum:
             return .qtum
+        case .terra:
+            return .terra
         default:
             return HRP.unknown
         }
