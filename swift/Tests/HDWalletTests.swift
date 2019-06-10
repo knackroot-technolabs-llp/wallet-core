@@ -14,6 +14,7 @@ extension HDWallet {
 class HDWalletTests: XCTestCase {
     func testSeed() {
         let wallet = HDWallet.test
+        
 
         XCTAssertEqual(wallet.seed.hexString, "7ae6f661157bda6492f6162701e570097fc726b6235011ea5ad09bf04986731ed4d92bc43cbdee047b60ea0dd1b1fa4274377c9bf5bd14ab1982c272d8076f29")
     }
@@ -346,5 +347,14 @@ class HDWalletTests: XCTestCase {
         let address = ravencoin.deriveAddress(privateKey: key)
 
         XCTAssertEqual("RHQmrg7nNFnRUwg2mH7GafhRY3ZaF6FB2x", address)
+    }
+
+    func testDerivePivx() {
+        let pivx = CoinType.pivx
+        let wallet = HDWallet.test
+        let key = wallet.getKeyForCoin(coin: pivx)
+        let address = pivx.deriveAddress(privateKey: key)
+
+        XCTAssertEqual("DSwC481pHsCfKrPJc9R1U2DnuEQT7aoqVG", address)
     }
 }

@@ -660,5 +660,20 @@
         "curve": "ed25519",
         "publicKeyType": "curve25519",
         "explorer": "https://wavesexplorer.com/tx/"
+    },
+    {
+        "id": "pivx",
+        "name": "Pivx",
+        "symbol": "PIVX",
+        "decimals": 8,
+        "blockchain": "Bitcoin",
+        "derivationPath": "m/44'/119'/0'/0/0",
+        "curve": "secp256k1",
+        "publicKeyType": "secp256k1",
+        "publicKeyHasher": "sha256ripemd",
+        "base58Hasher": "sha256d",
+        "xpub": "ppub",
+        "xprv": "pprv",
+        "explorer": "https://mainnet-explorer.pivx.org/tx/"
     }
 ]
