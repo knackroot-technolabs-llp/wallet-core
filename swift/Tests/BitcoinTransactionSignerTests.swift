@@ -12,6 +12,7 @@ class BitcoinTransactionSignerTests: XCTestCase {
         continueAfterFailure = false
     }
 
+        
     func testSignP2WSH() throws {
         var input = BitcoinSigningInput.with {
             $0.hashType = TWSignatureHashTypeAll
