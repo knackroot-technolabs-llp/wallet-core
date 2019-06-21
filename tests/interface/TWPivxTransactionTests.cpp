@@ -5,7 +5,7 @@
 #include "Bitcoin/TransactionSigner.h"
 #include "HexCoding.h"
 #include "PublicKey.h"
-
+#include <iostream>
 #include <TrustWalletCore/TWBitcoinScript.h>
 #include <TrustWalletCore/TWHDWallet.h>
 
@@ -58,11 +58,19 @@ TEST(PivxTransaction, SignTransaction) {
 TEST(PivxTransaction, LockScripts) {
  
     auto script = WRAP(TWBitcoinScript, TWBitcoinScriptBuildForAddress(STRING("DMkaY8mK98YgyDTYBZFLP3Rx1cMotAVA5Z").get()));
+
     auto scriptData = WRAPD(TWBitcoinScriptData(script.get()));
     assertHexEqual(scriptData, "76a914b637f1512b4517737009cfd3f7af3c9c692e13f088ac");
  
     auto script2 = WRAP(TWBitcoinScript, TWBitcoinScriptBuildForAddress(STRING("D8dcUg3pjJy15tkC2MYKtnUsYJj83YyEjS").get()));
     auto scriptData2 = WRAPD(TWBitcoinScriptData(script2.get()));
     assertHexEqual(scriptData2, "76a914264d03f3656b27b517a2d12908faa6a2a888d63588ac");
-}
+    
+    auto script3 = WRAP(TWBitcoinScript, TWBitcoinScriptBuildForAddress(STRING("6GFEoFg5VTHezgY2dKNRrqF4RxN9mywQ65").get()));
+    auto scriptData3 = WRAPD(TWBitcoinScriptData(script3.get()));
+    assertHexEqual(scriptData3, "a914144fb47ee6a7a1da121852de917cda2bdbcdb14c87");
 
+    auto script4 = WRAP(TWBitcoinScript, TWBitcoinScriptBuildForAddress(STRING("6MHC3zQH5H5pdz99FDC6SNJr5E8N9kb3k3").get()));
+    auto scriptData4 = WRAPD(TWBitcoinScriptData(script4.get()));
+    assertHexEqual(scriptData4, "a9144b86dfac7f503de1127366815d1d45241328246687");
+}
